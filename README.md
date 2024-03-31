@@ -7,4 +7,4 @@ A simple react app that displays the next meal period of your intermittent fasti
 - Material-UI
 - TailwindCSS
 
-Demo Link: 
+Demo Link: https://intermittent-fasting-time-calculator.vercel.app/
