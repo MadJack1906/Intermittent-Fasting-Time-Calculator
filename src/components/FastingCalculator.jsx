@@ -1,13 +1,25 @@
 import {TimePicker} from "@mui/x-date-pickers";
 import {DateTime} from "luxon";
 import {useEffect, useState} from "react";
-import {MenuItem, Select} from "@mui/material";
+import {Alert, MenuItem, Select} from "@mui/material";
 import {fastingDuration as fastingDurationData} from "../data/fasting-duration.jsx";
 
 export default function FastingCalculator() {
 	const [lastMealTime, setLastMealTime] = useState(DateTime.local());
 	const [fastingDuration, setFastingDuration] = useState(8);
-	const [nextMealTime, setNextMealTime] = useState(null)
+	const [nextMealTime, setNextMealTime] = useState(null);
+	const [popUpVisibility, setPopUpVisibility] = useState(false);
+
+	const copyNextMeal = () => {
+		navigator.clipboard.writeText(nextMealTime.toFormat("HH:MM a (yyyy LLLL dd)")).then(r => "Failed to Copy");
+
+		setPopUpVisibility(true);
+
+		setTimeout(() => {
+			setPopUpVisibility(false)
+		}, 3000)
+
+	}
 
 	useEffect(() => {
 		setNextMealTime(lastMealTime.plus({hours: fastingDuration}));
@@ -50,7 +62,23 @@ export default function FastingCalculator() {
 						</p>
 					)}
 				</div>
+				<button
+					onClick={copyNextMeal}
+					className={'bg-sea-blue py-2 px-8 w-fit text-sm text-white rounded-lg tracking-wide border border-transparent hover:border-sea-blue hover:bg-white hover:text-sea-blue'}
+				>
+					Copy
+				</button>
 			</div>
+
+			{
+				popUpVisibility && (
+					<div className="absolute top-1 right-1">
+						<Alert variant="filled" severity="success">
+							Copied text succesfully.
+						</Alert>
+					</div>
+				)
+			}
 		</div>
 	);
 }
