@@ -5,5 +5,6 @@ A simple react app that displays the next meal period of your intermittent fasti
 - ReactJS
 - Luxon
 - Material-UI
+- TailwindCSS
 
 Demo Link: 
