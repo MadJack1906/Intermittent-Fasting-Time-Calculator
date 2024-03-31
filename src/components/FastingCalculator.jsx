@@ -23,7 +23,7 @@ export default function FastingCalculator() {
 
 	useEffect(() => {
 		setNextMealTime(lastMealTime.plus({hours: fastingDuration}));
-	}, [fastingDuration])
+	}, [fastingDuration, lastMealTime])
 
 	return (
 		<div className="bg-white lg:min-w-[500px] md:w-fit w-full p-8 rounded-xl shadow flex flex-col gap-4">
