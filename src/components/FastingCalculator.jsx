@@ -58,7 +58,7 @@ export default function FastingCalculator() {
 				<div className="">
 					{nextMealTime && (
 						<p className={'text-lg font-bold text-sea-blue tracking-widest'}>
-							{nextMealTime.toFormat("HH:MM a (yyyy LLLL dd)")}
+							{nextMealTime.toFormat("hh:MM a (yyyy LLLL dd)")}
 						</p>
 					)}
 				</div>
