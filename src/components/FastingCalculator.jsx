@@ -1,5 +1,4 @@
-import {TimeField, TimePicker} from "@mui/x-date-pickers";
-import dayjs from "dayjs";
+import {TimePicker} from "@mui/x-date-pickers";
 import {DateTime} from "luxon";
 import {useEffect, useState} from "react";
 import {MenuItem, Select} from "@mui/material";
@@ -15,7 +14,7 @@ export default function FastingCalculator() {
 	}, [fastingDuration])
 
 	return (
-		<div className="bg-white min-w-[500px] p-4 rounded-lg shadow flex flex-col gap-4">
+		<div className="bg-white lg:min-w-[500px] md:w-fit w-full p-8 rounded-xl shadow flex flex-col gap-4">
 			<h1 className="text-lg font-bold">Intermittent Fasting Hour Calculator</h1>
 
 			<div className="flex flex-col gap-2">
